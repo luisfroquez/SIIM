@@ -44,9 +44,10 @@ const Carousel = () => {
       <HStack className={styles.sliderTrack} h="100%" w="200%" spacing={0}>
         {imagesArray.map((item, i) => (
           <Center
+            key={i}
             className={styles.slide}
             pos="relative"
-            minW={{base:"100%", md:"50%",xl:"33.33%"}}
+            minW={{ base: "100%", md: "50%", xl: "33.33%" }}
             h="100%"
             transition="0.5s"
             _hover={{ transform: "scale(1.1)" }}
