@@ -1,3 +1,4 @@
+import Empresa from "@/Modules/Empresa/Empresa";
 import Hero from "@/Modules/Home/Hero";
 import SocialMedia from "@/Modules/Home/SocialMedia";
 import Navbar from "@/Modules/Navbar/Navbar";
@@ -25,6 +26,7 @@ export default function Home() {
         <Hero />
         <SocialMedia />
       </Flex>
+      <Empresa />
     </>
   );
 }

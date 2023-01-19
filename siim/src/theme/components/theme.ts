@@ -1,5 +1,6 @@
 import { extendBaseTheme } from "@chakra-ui/react";
 import { Button } from "./button";
+import { Text } from "./text";
 
 const styles = {
   global: (props: any) => ({
@@ -19,6 +20,6 @@ export const theme = extendBaseTheme({
   styles,
   fonts,
   components: {
-    Button,
+    Button,Text
   },
 });
