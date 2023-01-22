@@ -19,27 +19,28 @@ const Carousel = () => {
       w="100%"
       spacing={0}
       overflow="hidden"
+      minH={64}
       pos="relative"
-      _before={{
-        bg: "linear-gradient(to left, #FFFFFF00, #FFFFFFFF)",
-        content: '""',
-        h: "100%",
-        pos: "absolute",
-        w: "15%",
-        zIndex: "2",
-        left: 0,
-        top: 0,
-      }}
-      _after={{
-        bg: "linear-gradient(to right, #FFFFFF00, #FFFFFFFF)",
-        content: '""',
-        h: "100%",
-        pos: "absolute",
-        w: "15%",
-        zIndex: "2",
-        right: 0,
-        top: 0,
-      }}
+      // _before={{
+      //   bg: "linear-gradient(to left, #FFFFFF00, #FFFFFFFF)",
+      //   content: '""',
+      //   h: "100%",
+      //   pos: "absolute",
+      //   w: "15%",
+      //   zIndex: "2",
+      //   left: 0,
+      //   top: 0,
+      // }}
+      // _after={{
+      //   bg: "linear-gradient(to right, #FFFFFF00, #FFFFFFFF)",
+      //   content: '""',
+      //   h: "100%",
+      //   pos: "absolute",
+      //   w: "15%",
+      //   zIndex: "2",
+      //   right: 0,
+      //   top: 0,
+      // }}
     >
       <HStack className={styles.sliderTrack} h="100%" w="200%" spacing={0}>
         {imagesArray.map((item, i) => (

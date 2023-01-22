@@ -1,7 +1,7 @@
-import { Icon, IconProps } from "@chakra-ui/react";
+import { Icon, IconProps, ResponsiveValue } from "@chakra-ui/react";
 
 export interface SiimIsotipoProps {
-  width?: number | string;
+  width?: ResponsiveValue<string & {}> |  string  | number;
   circleColor?: string;
   crossColor?: string;
   iconsColor?: string;
@@ -9,7 +9,7 @@ export interface SiimIsotipoProps {
 }
 
 export const SiimIsotipo = ({
-  width= "100%",
+  width = "100%",
   circleColor = "#c10e18",
   crossColor = "black",
   iconsColor = "white",

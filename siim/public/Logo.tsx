@@ -1,13 +1,18 @@
-import { Stack, StackDirection, StackProps } from "@chakra-ui/react";
+import {
+  ResponsiveValue,
+  Stack,
+  StackDirection,
+  StackProps,
+} from "@chakra-ui/react";
 import { SiimIsotipo, SiimIsotipoProps } from "./SiimIsotipo";
 import { SiimLettersLogo, SiimLettersLogoProps } from "./SiimLettersLogo";
 
 interface LogoProps extends SiimIsotipoProps, SiimLettersLogoProps {
   direction?: StackDirection;
   spacing?: number | string;
-  width?: number | string;
-  isotipoWidth?: number | string;
-  lettersWidth?: number | string;
+  // width?: number | string;
+  isotipoWidth?: ResponsiveValue<string & {}> |  string  | number;
+  lettersWidth?: ResponsiveValue<string & {}> |  string  | number;
   containerProps?: StackProps;
 }
 

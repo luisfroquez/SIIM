@@ -1,7 +1,7 @@
-import { Icon, IconProps } from "@chakra-ui/react";
+import { Icon, IconProps, ResponsiveValue } from "@chakra-ui/react";
 
 export interface SiimLettersLogoProps {
-  width?: number | string;
+  width?: ResponsiveValue<string & {}> |  string  | number;
   siimLettersLogoProps?: IconProps;
 }
 

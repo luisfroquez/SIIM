@@ -13,6 +13,7 @@ import React from "react";
 const Hero = () => {
   return (
     <Center
+    w="100%"
       flexGrow={1}
       px={{ base: 0, md: 8, xl: 32 }}
       alignItems="stretch"

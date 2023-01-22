@@ -4,7 +4,7 @@ import Carousel from "./Carousel";
 
 const Empresa = () => {
   return (
-    <VStack h="100vh" pt={{ base: 8, md: 16, xl: 32 }} spacing={0} id="empresa">
+    <VStack  pt={{ base: 8, md: 16, xl: 32 }} spacing={0} id="empresa">
       <Heading
         fontSize={{ base: "4xl", xl: "6xl" }}
         fontWeight="bold"

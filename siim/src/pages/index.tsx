@@ -1,8 +1,9 @@
 import Empresa from "@/Modules/Empresa/Empresa";
 import Hero from "@/Modules/Home/Hero";
 import SocialMedia from "@/Modules/Home/SocialMedia";
+import SomosParte from "@/Modules/Home/SomosParte";
 import Navbar from "@/Modules/Navbar/Navbar";
-import { Flex } from "@chakra-ui/react";
+import { Flex, VStack } from "@chakra-ui/react";
 import Head from "next/head";
 
 export default function Home() {
@@ -18,15 +19,18 @@ export default function Home() {
         as="main"
         w="100vw"
         h="100vh"
-        overflowX="hidden"
+        overflow="hidden"
         overflowY="auto"
         flexDir="column"
       >
-        <Navbar />
-        <Hero />
-        <SocialMedia />
+        <VStack minH="100vh">
+          <Navbar />
+          <Hero />
+          <SocialMedia />
+        </VStack>
+        <Empresa />
+        <SomosParte />
       </Flex>
-      <Empresa />
     </>
   );
 }
