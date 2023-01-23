@@ -3,6 +3,7 @@ import Hero from "@/Modules/Home/Hero";
 import SocialMedia from "@/Modules/Home/SocialMedia";
 import SomosParte from "@/Modules/Home/SomosParte";
 import Navbar from "@/Modules/Navbar/Navbar";
+import Servicios from "@/Modules/Servicios/Servicios";
 import { Flex, VStack } from "@chakra-ui/react";
 import Head from "next/head";
 
@@ -30,6 +31,7 @@ export default function Home() {
         </VStack>
         <Empresa />
         <SomosParte />
+        <Servicios />
       </Flex>
     </>
   );
