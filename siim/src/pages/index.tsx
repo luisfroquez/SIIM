@@ -1,3 +1,4 @@
+import Certificates from "@/Modules/Certificates/Certificates";
 import Empresa from "@/Modules/Empresa/Empresa";
 import Hero from "@/Modules/Home/Hero";
 import SocialMedia from "@/Modules/Home/SocialMedia";
@@ -16,14 +17,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Flex
-        as="main"
-        w="100vw"
-        h="100vh"
-        overflow="hidden"
-        overflowY="auto"
-        flexDir="column"
-      >
+      <Flex as="main" flexDir="column">
         <VStack minH="100vh">
           <Navbar />
           <Hero />
@@ -32,6 +26,7 @@ export default function Home() {
         <Empresa />
         <SomosParte />
         <Servicios />
+        <Certificates />
       </Flex>
     </>
   );

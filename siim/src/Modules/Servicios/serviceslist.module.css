@@ -24,13 +24,12 @@
 /* Left slide*/
 .single-slide[data-order="1"] {
   left: 0vw;
-  /* transform: translate(-50%) scale(0.8, 0.8); */
   z-index: 1;
 }
 
 /* Middle slide */
 .single-slide[data-order="2"] {
-  left: 25vw;
+  left: 25%;
   transform: scale(1.5);
   box-shadow: -50px 50px 75px rgba(74, 85, 104, 0.5);
   z-index: 4;
@@ -38,13 +37,13 @@
 
 /* Right slide*/
 .single-slide[data-order="3"] {
-  left: 50vw;
+  left: 56%;
   z-index: 3;
 }
 
 /* RightFinal slide*/
 .single-slide[data-order="4"] {
-  left: 75vw;
+  left: 81%;
   z-index: 2;
 }
 
