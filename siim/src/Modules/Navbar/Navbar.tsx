@@ -29,8 +29,9 @@ const Navbar = () => {
       p={8}
       spacing={6}
       alignItems="center"
+      w="100%"
       direction={{ base: "row", xl: "column" }}
-      justifyContent="s"
+      justifyContent="space-between"
     >
       <Logo width={32} />
 
