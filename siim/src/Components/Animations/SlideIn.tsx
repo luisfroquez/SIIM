@@ -8,6 +8,7 @@ const SlideIn = ({
   duration = 1,
   delay = 0,
   distance = 50,
+  className,
   style,
   direction = "toRight",
 }: SlideInProps) => {
@@ -39,9 +40,10 @@ const SlideIn = ({
     <motion.div
       id={id}
       key={key}
-      style={{ ...style }}
+      className={className}
+      style={{ width:"100%", height:"100%",...style }}
       initial={initial}
-      animate={animate}
+      whileInView={animate}
       exit={initial}
       transition={{ duration: duration, delay: delay, ease: "easeIn" }}
     >

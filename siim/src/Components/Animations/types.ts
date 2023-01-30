@@ -8,6 +8,7 @@ export interface AnimationBaseProps {
   duration?: number;
   delay?: number;
   distance?: number;
+  className?: string;
   style?: MotionStyle;
   exit?: VariantLabels | TargetAndTransition;
 }

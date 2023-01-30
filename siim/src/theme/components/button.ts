@@ -5,6 +5,7 @@ export const Button = {
     w: "fit-content",
     fontWeight: "semibold",
     transition: "0.5s",
+    borderRadius: 2
   },
   // styles for different sizes ("sm", "md", "lg")
   sizes: {
@@ -15,6 +16,23 @@ export const Button = {
   },
   // styles for different visual variants ("outline", "solid")
   variants: {
+    primary: {
+      border:"1px",
+      borderColor:"gray.700",
+      bg: "gray.700",
+      color: "gray.100",
+      fontWeight: "normal",
+      _hover: { bg: "gray.800" },
+    },
+
+    secondary: {
+      border:"1px",
+      borderColor:"gray.700",
+      bg: "gray.100",
+      color: "gray.700",
+      fontWeight: "normal",
+      _hover: { bg: "gray.200" },
+    },
     home: {
       border: "1px",
       borderColor: "white",

@@ -1,15 +1,19 @@
-import Certificates from "@/Modules/Certificates/Certificates";
-import Empresa from "@/Modules/Empresa/Empresa";
-import Hero from "@/Modules/Home/Hero";
-import SocialMedia from "@/Modules/Home/SocialMedia";
+import MobileMenu from "@/Components/Navbar/MobileMenu";
+import Certificates from "@/Modules/Home/Certificates/Certificates";
+import Contacto from "@/Modules/Home/Contacto/Contacto";
+import Empresa from "@/Modules/Home/Empresa/Empresa";
+import HomeComponent from "@/Modules/Home/HomeComponent";
 import SomosParte from "@/Modules/Home/SomosParte";
-import Navbar from "@/Modules/Navbar/Navbar";
-import Servicios from "@/Modules/Servicios/Servicios";
-import Team from "@/Modules/Team/Team";
-import { Flex, VStack } from "@chakra-ui/react";
+import DynamicNavbar from "@/Components/Navbar/DynamicNavbar";
+import Servicios from "@/Modules/Home/Servicios/Servicios";
+import Team from "@/Modules/Home/Team/Team";
+import { Flex, useDisclosure } from "@chakra-ui/react";
 import Head from "next/head";
+import Footer from "@/Components/footer/Footer";
 
 export default function Home() {
+  const { isOpen, onToggle } = useDisclosure();
+
   return (
     <>
       <Head>
@@ -18,17 +22,17 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Flex as="main" flexDir="column">
-        <VStack minH="100vh">
-          <Navbar />
-          <Hero />
-          <SocialMedia />
-        </VStack>
+      <DynamicNavbar toggleMenuMobile={onToggle} />
+      <MobileMenu isOpen={isOpen} toggleMenu={onToggle} />
+      <Flex pos="relative" overflow="hidden" flexDir="column">
+        <HomeComponent toggleMenuMobile={onToggle} />
         <Empresa />
         <SomosParte />
         <Servicios />
         <Certificates />
         <Team />
+        <Contacto />
+        <Footer />
       </Flex>
     </>
   );

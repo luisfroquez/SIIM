@@ -1,11 +1,12 @@
 import { Button, Flex, Text, VStack } from "@chakra-ui/react";
 import { AnimatePresence, isValidMotionProp, motion } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
+import { LegacyRef, useState } from "react";
 import styles from "./team.module.css";
-
 import { chakra, shouldForwardProp } from "@chakra-ui/react";
 import ChevronRight from "public/icons/ChevronRight";
+import { useFocus } from "@/hooks/useFocus";
+import { ArrowFunction } from "typescript";
 
 const ChakraBox = chakra(motion.div, {
   /**
@@ -44,14 +45,15 @@ const teamMembers = [
 
 const Team = () => {
   const [active, setActive] = useState<number | null>(null);
+  const [ref, setFocus] = useFocus();
 
   return (
-    <Flex w="100vw" h="100vh" overflow="hidden" pos="relative">
+    <Flex w="100vw" h="100vh" overflow="hidden" pos="relative" id="equipo">
       <AnimatePresence>
         {active === null && (
           <ChakraBox
             pos="absolute"
-            top={{ base: 8, md: 16, xl: 32 }}
+            top={{ base: 20, xl: 24, "2xl": 32 }}
             left={0}
             right={0}
             // MOTION:
@@ -86,6 +88,7 @@ const Team = () => {
         )}
       </AnimatePresence>
 
+      {/* BIG NAME */}
       <AnimatePresence>
         {active !== null && (
           <motion.div
@@ -102,53 +105,85 @@ const Team = () => {
           >
             <Text
               fontWeight="extrabold"
-              fontSize={`${140 / teamMembers[active].alt.length}vw`}
-              lineHeight={`${200 / teamMembers[active].alt.length}vh`}
+              fontSize={
+                active === 1
+                  ? `${160 / teamMembers[active].alt.length}vw`
+                  : `${140 / teamMembers[active].alt.length}vw`
+              }
+              lineHeight="none"
               pos="absolute"
-              top={{ base: -16, md: 32, xl: 32 }}
-              right={-0}
+              top={{ base: 16, md: 32 }}
+              right={-2}
               color="gray.200"
               textTransform="uppercase"
             >
               {teamMembers[active].alt}
             </Text>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
+      {/* NAME + POSITION + BUTTON */}
+      <AnimatePresence>
+        {active !== null && (
+          <motion.div
+            initial={{ x: 50, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 0.25 }}
+            style={{
+              position: "absolute",
+              bottom: 0,
+              top: 0,
+              left: 0,
+              right: 0,
+              zIndex: 10,
+            }}
+          >
             <VStack
+              ref={ref as LegacyRef<HTMLDivElement>}
               alignItems={{
                 base: "center",
                 md: "flex-end",
               }}
               justifyContent={{
-                base: "flex-start",
+                base: "space-between",
                 md: "center",
                 xl: "flex-end",
               }}
               w="100%"
               h="100%"
-              pos="relative"
-              zIndex={100}
               p={{ base: 8, md: 16, xl: 32 }}
-              pt={{ base: 16, md: 16, xl: 32 }}
+              pt={{ base: 24, md: 16, xl: 32 }}
             >
-              <Text
-                fontSize={{ base: "4xl", md: "6xl" }}
-                lineHeight="none"
-                fontWeight="bold"
-                maxW={{ base: "40rem", md: "20rem", xl: "40rem" }}
-                textAlign={{ base: "center", md: "right" }}
-              >
-                {teamMembers[active].name}
-              </Text>
-              <Text>{teamMembers[active].position}</Text>
+              <div>
+                <Text
+                  fontSize={{ base: "4xl", md: "6xl" }}
+                  lineHeight="none"
+                  fontWeight="bold"
+                  maxW={{ base: "40rem", md: "20rem", xl: "40rem" }}
+                  textAlign={{ base: "center", md: "right" }}
+                >
+                  {teamMembers[active].name}
+                </Text>
+                <Text
+                  lineHeight="none"
+                  pb={4}
+                  textAlign={{ base: "center", md: "right" }}
+                >
+                  {teamMembers[active].position}
+                </Text>
+              </div>
 
               <Button
-                variant="primary"
+                variant="secondary"
+                fontSize="xs"
+                pos="relative"
+                py={2}
+                px={3}
+                lineHeight="none"
                 onClick={() => setActive(null)}
                 rightIcon={
-                  <ChevronRight
-                    fontSize={{ base: "0.5rem", xl: "0.75rem" }}
-                    transform="rotate(90deg)"
-                  />
+                  <ChevronRight fontSize="0.5rem" transform="rotate(90deg)" />
                 }
               >
                 Ver todo el equipo
@@ -157,6 +192,8 @@ const Team = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* IMAGES */}
       <Flex
         height="100vh"
         width="100vw"
@@ -165,7 +202,7 @@ const Team = () => {
         overflowX={active === null ? "auto" : "hidden"}
       >
         <Flex
-          className={styles.parent}
+          className={active === null ? styles.parent : ""}
           w={{ base: "200vw", xl: "100%" }}
           position="relative"
         >
@@ -177,14 +214,13 @@ const Team = () => {
                     display="flex"
                     position="absolute"
                     h={active === i ? { base: "75vh", md: "100vh" } : "75vh"}
-                    //   minW={"24rem"}
-                    ml={{ base: -16, md: -4 }}
+                    ml={{ base: 0, md: -4 }}
                     left={
                       active === i
                         ? { base: 0, md: 16, xl: 32 }
                         : {
-                            base: `${50 * i}%`,
-                            md: `${33 * i}%`,
+                            base: `${50 * i - 20}%`,
+                            md: `${33 * i - 4}%`,
                             xl: `${25 * i}%`,
                           }
                     }

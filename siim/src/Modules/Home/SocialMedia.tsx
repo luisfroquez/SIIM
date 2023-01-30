@@ -3,7 +3,7 @@ import {
   InstagramOutlined,
   LinkedinOutlined,
 } from "@ant-design/icons";
-import { Stack } from "@chakra-ui/react";
+import { Link, Stack } from "@chakra-ui/react";
 
 const SocialMedia = () => {
   return (
@@ -14,9 +14,18 @@ const SocialMedia = () => {
       alignItems="center"
       color="gray.700"
     >
-      <FacebookOutlined width="24px" />
-      <InstagramOutlined width="24px" />
-      <LinkedinOutlined width="24px" />
+      <Link href="https://www.facebook.com/SIIMSPAgroup" target="_blank">
+        <FacebookOutlined width="24px" />
+      </Link>
+      <Link href="https://www.instagram.com/siim_spa/" target="_blank">
+        <InstagramOutlined width="24px" />
+      </Link>
+      <Link
+        href="https://www.linkedin.com/in/siim-group-43b2bb1b9/"
+        target="_blank"
+      >
+        <LinkedinOutlined width="24px" />
+      </Link>
     </Stack>
   );
 };
